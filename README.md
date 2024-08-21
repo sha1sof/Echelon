@@ -20,6 +20,10 @@
     
     cd Echelon
 
+Пропишите эту команду для установки зависимостей
+
+    go mod tidy
+
 
 ## Запуск мигратора
 
@@ -61,26 +65,19 @@
 
     env: prod
     storage:
-        type: memory
-        storage_path: ./storage/preview.db
+        type: "sqlite"
+        storage_path: "./youtube.db"
     grpc_server:
         port: 8080
     clients:
         preview:
-            address: localhost:50051
-            timeout: 5s
+            address: "localhost:8080"
+            timeout: "30s"
             retriesCount: 3
-            output_dir: ./thumbnails
+            output_dir: "./thumbnails/"
 
 - **env**: Среда выполнения, отличия в типе логироваия (prod или local).
 - **storage**: Параметры для хранения данных.
 - **grpc_server**: Параметры для gRPC сервера.
 - **clients.preview**: Параметры для клиента.
 
-## Тестирование
-
-Для запуска тестов используйте команду:
-
-    go test ./test/...
-
-### 2 раза подряд нельзя делать тесты, нужно менять параметр ***url*** в файле ***getThumbnail_test.go*** на другую ссылку youtube.

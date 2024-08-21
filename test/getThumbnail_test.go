@@ -41,10 +41,11 @@ func TestGetThumbnail_Bad(t *testing.T) {
 }
 
 // TestGetThumbnail_Get получения видео уже которое есть к кеше.
+// Делается после TestGetThumbnail_HappyPath.
 func TestGetThumbnail_Get(t *testing.T) {
 	ctx, st := suite.New(t)
 
-	url := "https://www.youtube.com/watch?v=r2sLp9ZOq0I"
+	url := "https://www.youtube.com/watch?v=e_pY0btswmk"
 
 	res, err := st.TClient.GetThumbnail(ctx, &preview.ThumbnailRequest{
 		VideoUrl: url,
