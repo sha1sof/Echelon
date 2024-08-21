@@ -18,7 +18,7 @@
 
     git clone https://github.com/sha1sof/Echelon
     
-    cd Echelon-
+    cd Echelon
 
 
 ## Запуск мигратора
