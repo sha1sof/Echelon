@@ -1,0 +1,15 @@
+env: "prod"
+
+storage:
+  type: "sqlite"
+  storage_path: "./youtube.db"
+
+grpc_server:
+  port: 8080
+
+clients:
+  preview:
+    address: "localhost:8080"
+    timeout: "30s"
+    retriesCount: 3
+    output_dir: "./thumbnails/"
